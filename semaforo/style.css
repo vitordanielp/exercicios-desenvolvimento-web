@@ -1,0 +1,62 @@
+:root {
+    --light-size: 20vh;
+    --red: #ff0000;
+    --yellow: #ffff00;
+    --green: #00ff00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.lights-container {
+    border-radius: 12px;
+    min-height: fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    background-color: #000;
+    padding: 5vh;
+}
+
+.light {
+    opacity: 70%;
+    background: radial-gradient(#ffffff80, #00000000);
+    min-width: var(--light-size);
+    max-width: var(--light-size);
+    min-height: var(--light-size);
+    max-height: var(--light-size);
+    line-height: var(--light-size);
+    border-radius: 50%;
+    text-align: center;
+    font-size: clamp(12px, 2.5vh, 32px);
+}
+
+#red-light {
+    background-color: var(--red);
+}
+
+#yellow-light {
+    background-color: var(--yellow);
+}
+
+#green-light {
+    background-color: var(--green);
+}
+
+.on {
+    opacity: 100%;
+}

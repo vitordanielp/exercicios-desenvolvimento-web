@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --circle-size: 20vw;
+    --circle-size-mobile: 35vw;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes cursor-blink {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #999
+    }
+}
+
+#circles-container {
+    min-height: 100vh;
+    min-width: 300px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    background-color: #000;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-height: var(--circle-size);
+    max-height: var(--circle-size);
+    min-width: var(--circle-size);
+    max-width: var(--circle-size);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    font-size: clamp(12px, 3vw, 42px);
+}
+
+/* Itens pares [0, 2, 4...] */
+.circle:nth-child(odd) {
+    color: #fff;
+}
+
+.circle:nth-child(1) {
+    background-color: cornflowerblue;
+}
+
+.circle:nth-child(2) {
+    background-color: aquamarine;
+}
+
+.circle:nth-child(3) {
+    background-color: brown;
+}
+
+.typing {
+    user-select: none;
+    max-width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    border-right: 0.15em solid #999;
+    animation: typing 2s steps(40, end) infinite,
+        cursor-blink 0.75s step-end infinite;
+}
+
+
+@media screen and (max-width:480px) {
+    #circles-container {
+        flex-flow: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .circle {
+        min-width: var(--circle-size-mobile);
+        min-height: var(--circle-size-mobile);
+        max-width: var(--circle-size-mobile);
+        max-height: var(--circle-size-mobile);
+    }
+}
